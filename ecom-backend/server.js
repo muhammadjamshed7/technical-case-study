@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
+const cartRoutes = require('./routes/cartRoutes');
 
 // Import routes
 const productRoutes = require('./routes/productRoutes'); // Product routes
@@ -28,6 +29,10 @@ app.use('/api/auth', authRoutes); // Authentication routes
 app.use('/api', productRoutes);   // Product routes
 
 // Start the server
+
+// Use cart routes
+app.use('/api', cartRoutes);
+app.use('/api/cart', cartRoutes); 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
