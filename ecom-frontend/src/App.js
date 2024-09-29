@@ -89,6 +89,7 @@ import ProductList from './components/ProductList';
 import AddProduct from './components/AddProduct';
 import CartPage from './components/CartPage'; // Import the Cart Page
 import { CartProvider } from './context/CartContext'; // Import the Cart Provider
+import OrderList from './components/OrderList';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login status
@@ -154,6 +155,14 @@ function App() {
                 ) : (
                   <Navigate to="/login" /> // Redirect to login if not logged in
                 )
+              }
+            />
+             <Route
+              path="/orders"
+              element={
+                
+                  <OrderList /> // Display order list page
+                
               }
             />
 

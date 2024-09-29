@@ -7,7 +7,10 @@ const cartRoutes = require('./routes/cartRoutes');
 
 // Import routes
 const productRoutes = require('./routes/productRoutes'); // Product routes
-const authRoutes = require('./routes/authRoute'); // Auth routes
+const Order = require('./model/order');
+const authRoutes = require('./routes/authRoute'); 
+const orderRoutes = require('./routes/orderRoutes'); 
+// Auth routes
 
 // Initialize express app
 const app = express();
@@ -27,8 +30,30 @@ mongoose.connect(process.env.MONGO_URI, {
 // Use routes
 app.use('/api/auth', authRoutes); // Authentication routes
 app.use('/api', productRoutes);   // Product routes
+app.post('/api/orders/place', async (req, res) => {
+  const { products, totalAmount } = req.body;
 
-// Start the server
+  if (!products || products.length === 0) {
+    return res.status(400).json({ message: 'No products provided' });
+  }
+
+  try {
+    // Create a new order
+    const order = new Order({
+      products,
+      totalAmount,
+    });
+
+    // Save order to database
+    await order.save();
+
+    return res.status(201).json({ message: 'Order placed successfully', order });
+  } catch (error) {
+    return res.status(500).json({ message: 'Failed to place order', error: error.message });
+  }
+});
+app.use('/api/orders', orderRoutes);
+
 
 // Use cart routes
 app.use('/api', cartRoutes);
