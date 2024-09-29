@@ -16,10 +16,7 @@ const orderRoutes = require('./routes/orderRoutes');
 const app = express();
 
 // Middleware
-app.use(cors({
-  origin: '*', // Allow all origins, or specify the frontend domain like 'http://localhost:3000'
-  credentials: true, // If you're handling cookies or session-based authentication
-}));
+app.use(cors());
 app.use(express.json()); // Parse JSON request bodies
 
 // Connect to MongoDB
