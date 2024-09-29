@@ -54,7 +54,7 @@
 // //   const handleCheckout = async () => {
 // //     try {
 // //       // Send order to backend
-// //       await axios.post('http://localhost:5000/api/orders/place', {
+// //       await axios.post('http://localhost:5001/api/orders/place', {
 // //         products: cart.map(item => ({ product: item.product._id, quantity: item.quantity })),
 // //         totalAmount,
 // //       });
@@ -125,7 +125,7 @@
 //   const handleCheckout = async () => {
 //     try {
 //       // Send order to backend
-//       await axios.post('http://localhost:5000/api/orders/place', {
+//       await axios.post('http://localhost:5001/api/orders/place', {
 //         products: cart.map(item => ({ product: item.product._id, quantity: item.quantity })),
 //         totalAmount,
 //       });
@@ -230,7 +230,7 @@ const CartPage = () => {
   const handleCheckout = async () => {
     try {
       // Send order to backend
-      await axios.post('http://localhost:5000/api/orders/place', {
+      await axios.post('http://localhost:5001/api/orders/place', {
         products: cart.map(item => ({ product: item.product._id, quantity: item.quantity })),
         totalAmount,
       });

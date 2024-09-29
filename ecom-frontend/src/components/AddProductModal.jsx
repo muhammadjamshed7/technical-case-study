@@ -67,7 +67,7 @@ const AddProductModal = ({ onClose }) => {
       });
 
       // Send product details including Base64 image to the backend
-      const response = await axios.post('http://localhost:5000/api/products', {
+      const response = await axios.post('http://localhost:5001/api/products', {
         name: values.name,
         price: values.price,
         category: values.category,

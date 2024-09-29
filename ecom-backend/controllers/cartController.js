@@ -85,7 +85,7 @@
 //   const { productId, quantity } = req.body;
 //   try {
 //     let cart = await Cart.findOne({ user: req.user.id });
-    
+
 //     // If no cart exists for the user, create one
 //     if (!cart) {
 //       cart = new Cart({
@@ -108,14 +108,14 @@
 //     res.status(500).json({ message: err.message });
 //   }
 // };
-const Cart = require('../model/Cart');
+const Cart = require("../model/Cart");
 
 // Fetch the cart
 exports.getCart = async (req, res) => {
   try {
-    const cart = await Cart.findOne().populate('products.product');
+    const cart = await Cart.findOne().populate("products.product");
     if (!cart) {
-      return res.status(404).json({ message: 'Cart is empty' });
+      return res.status(404).json({ message: "Cart is empty" });
     }
     res.status(200).json(cart);
   } catch (err) {
@@ -137,7 +137,9 @@ exports.addToCart = async (req, res) => {
       });
     } else {
       // Check if the product already exists in the cart
-      const existingProduct = cart.products.find((item) => item.product.toString() === productId);
+      const existingProduct = cart.products.find(
+        (item) => item.product.toString() === productId
+      );
 
       if (existingProduct) {
         // If product exists, update its quantity
@@ -149,7 +151,7 @@ exports.addToCart = async (req, res) => {
     }
 
     await cart.save();
-    res.status(201).json({ message: 'Product added to cart', cart });
+    res.status(201).json({ message: "Product added to cart", cart });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -160,16 +162,22 @@ exports.removeFromCart = async (req, res) => {
   const { productId } = req.body;
 
   try {
-    let cart = await Cart.findOne();
+    let cart=await Cart.findOneAndUpdate(
+      {
+        "products.product": mongoose.Types.ObjectId(productId),
+      },
+      { $pull: { products: { product: mongoose.Types.ObjectId(productId) } } }
+    );
     if (!cart) {
-      return res.status(404).json({ message: 'Cart not found' });
+      return res.status(404).json({ message: "Cart not found" });
     }
 
     // Filter out the product to remove it from the cart
-    cart.products = cart.products.filter((item) => item.product.toString() !== productId);
+    // cart.products = cart.products.filter((item) => item.product.toString() !== productId);
 
-    await cart.save();
-    res.status(200).json({ message: 'Product removed from cart', cart });
+    // await cart.save();
+
+    res.status(200).json({ message: "Product removed from cart", cart });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
