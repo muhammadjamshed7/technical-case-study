@@ -18,8 +18,7 @@ const app = express();
 // Middleware
 app.use(cors({
   origin: '*', // Allow all origins, or specify the frontend domain like 'http://localhost:3000'
-  credentials: true,
-  allowedHeaders: ['Content-Type', 'Authorization'], // If you're handling cookies or session-based authentication
+  credentials: true, // If you're handling cookies or session-based authentication
 }));
 app.use(express.json()); // Parse JSON request bodies
 
