@@ -12,7 +12,7 @@ import ".././components/addmodal.css"
 //   useEffect(() => {
 //     const fetchCart = async () => {
 //       try {
-//         const response = await axios.get('http://localhost:5001/api/cart', {
+//         const response = await axios.get('https://technical-case-study-backend.vercel.app/api/cart', {
 //           headers: {
 //             Authorization: `Bearer ${localStorage.getItem('token')}`, // Assuming token is stored in localStorage
 //           },
@@ -32,7 +32,7 @@ import ".././components/addmodal.css"
 //   const addToCart = async (productId, quantity) => {
 //     try {
 //       const response = await axios.post(
-//         'http://localhost:5001/api/cart',
+//         'https://technical-case-study-backend.vercel.app/api/cart',
 //         { productId, quantity },
 //         {
 //           headers: {
@@ -67,7 +67,7 @@ import ".././components/addmodal.css"
 //   useEffect(() => {
 //     const fetchCart = async () => {
 //       try {
-//         const response = await axios.get('http://localhost:5001/api/cart', {
+//         const response = await axios.get('https://technical-case-study-backend.vercel.app/api/cart', {
 //           headers: {
 //             Authorization: `Bearer ${localStorage.getItem('token')}`, // Assuming token is stored in localStorage
 //           },
@@ -87,7 +87,7 @@ import ".././components/addmodal.css"
 //   const addToCart = async (productId, quantity) => {
 //     try {
 //       const response = await axios.post(
-//         'http://localhost:5001/api/cart',
+//         'https://technical-case-study-backend.vercel.app/api/cart',
 //         { productId, quantity },
 //         {
 //           headers: {
@@ -120,7 +120,7 @@ import ".././components/addmodal.css"
 //   useEffect(() => {
 //     const fetchCart = async () => {
 //       try {
-//         const response = await axios.get('http://localhost:5001/api/cart');
+//         const response = await axios.get('https://technical-case-study-backend.vercel.app/api/cart');
 //         setCart(response.data.products);
 //         setLoading(false);
 //       } catch (error) {
@@ -135,7 +135,7 @@ import ".././components/addmodal.css"
 //   // Add product to cart
 //   const addToCart = async (productId, quantity) => {
 //     try {
-//       const response = await axios.post('http://localhost:5001/api/cart', {
+//       const response = await axios.post('https://technical-case-study-backend.vercel.app/api/cart', {
 //         productId,
 //         quantity,
 //       });
@@ -164,7 +164,7 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/api/cart');
+        const response = await axios.get('https://technical-case-study-backend.vercel.app/api/cart');
         setCart(response.data.products);
         setLoading(false);
       } catch (error) {
@@ -179,7 +179,7 @@ export const CartProvider = ({ children }) => {
   // Add product to cart
   const addToCart = async (productId, quantity) => {
     try {
-      const response = await axios.post('http://localhost:5001/api/cart', {
+      const response = await axios.post('https://technical-case-study-backend.vercel.app/api/cart', {
         productId,
         quantity,
       });
@@ -191,7 +191,7 @@ export const CartProvider = ({ children }) => {
   };
   const removeFromCart = async (productId) => {
     try {
-      const response = await axios.delete('http://localhost:5001/api/cart/remove', {
+      const response = await axios.delete('https://technical-case-study-backend.vercel.app/api/cart/remove', {
         productId,
         
       });

@@ -67,7 +67,7 @@ const AddProductModal = ({ onClose }) => {
       });
 
       // Send product details including Base64 image to the backend
-      const response = await axios.post('http://localhost:5001/api/products', {
+      const response = await axios.post('https://technical-case-study-backend.vercel.app/api/products', {
         name: values.name,
         price: values.price,
         category: values.category,

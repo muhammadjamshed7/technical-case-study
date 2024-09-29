@@ -11,7 +11,7 @@ const AddProduct = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5001/api/products', {
+      const response = await axios.post('https://technical-case-study-backend.vercel.app/api/products', {
         name,
         price: Number(price), // Ensure the price is sent as a number
         category,

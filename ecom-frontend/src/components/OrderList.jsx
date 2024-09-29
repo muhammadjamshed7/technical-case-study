@@ -9,7 +9,7 @@
 //   useEffect(() => {
 //     const fetchOrders = async () => {
 //       try {
-//         const response = await axios.get('http://localhost:5001/api/orders/all');
+//         const response = await axios.get('https://technical-case-study-backend.vercel.app/api/orders/all');
 //         setOrders(response.data);
 //         setLoading(false);
 //       } catch (err) {
@@ -65,7 +65,7 @@ const OrderList = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/api/orders/all');
+        const response = await axios.get('https://technical-case-study-backend.vercel.app/api/orders/all');
         setOrders(response.data);
         setLoading(false);
       } catch (err) {
