@@ -18,7 +18,7 @@ const Signup = () => {
 
   const handleSignup = async (values, { setSubmitting }) => {
     try {
-      const response = await axios.post('https://technical-case-study-backend.vercel.app/api/auth/signup', {
+      const response = await axios.post('http://localhost:5001/api/auth/signup', {
         username: values.username,
         email: values.email,
         password: values.password,

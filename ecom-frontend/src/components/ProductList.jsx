@@ -12,7 +12,7 @@
 // // //   useEffect(() => {
 // // //     const fetchProducts = async () => {
 // // //       try {
-// // //         const response = await axios.get('https://technical-case-study-backend.vercel.app/api/products'); // Adjust API URL if needed
+// // //         const response = await axios.get('http://localhost:5001/api/products'); // Adjust API URL if needed
 // // //         setProducts(response.data); // Set the products in state
 // // //         setLoading(false); // Turn off loading
 // // //       } catch (err) {
@@ -84,7 +84,7 @@
 // // //   useEffect(() => {
 // // //     const fetchProducts = async () => {
 // // //       try {
-// // //         const response = await axios.get('https://technical-case-study-backend.vercel.app/api/products', {
+// // //         const response = await axios.get('http://localhost:5001/api/products', {
 // // //           params: { page, limit: 10 },
 // // //         });
 // // //         if (response.data && Array.isArray(response.data.products)) {
@@ -193,7 +193,7 @@
 // //   useEffect(() => {
 // //     const fetchProducts = async () => {
 // //       try {
-// //         const response = await axios.get('https://technical-case-study-backend.vercel.app/api/products', {
+// //         const response = await axios.get('http://localhost:5001/api/products', {
 // //           params: { page, limit: 10 },
 // //         });
 // //         if (response.data && Array.isArray(response.data.products)) {
@@ -308,7 +308,7 @@
 // //   useEffect(() => {
 // //     const fetchProducts = async () => {
 // //       try {
-// //         const response = await axios.get('https://technical-case-study-backend.vercel.app/api/products', {
+// //         const response = await axios.get('http://localhost:5001/api/products', {
 // //           params: { page, limit: 10 },
 // //         });
 // //         setProducts(response.data.products);
@@ -407,7 +407,7 @@
 //   useEffect(() => {
 //     const fetchProducts = async () => {
 //       try {
-//         const response = await axios.get('https://technical-case-study-backend.vercel.app/api/products', {
+//         const response = await axios.get('http://localhost:5001/api/products', {
 //           params: { page, limit: 10 },
 //         });
 //         setProducts(response.data.products);
@@ -521,7 +521,7 @@ const ProductList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('https://technical-case-study-backend.vercel.app/api/products', {
+        const response = await axios.get('http://localhost:5001/api/products', {
           params: { page, limit: 10 },
         });
         setProducts(response.data.products);
