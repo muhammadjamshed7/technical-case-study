@@ -55,9 +55,6 @@ PORT=5001
 
 
 
-    Key Changes:
-1.   Removed unnecessary details   like screenshots, deployment, etc.
-2.   Focused on the essentials   such as features, tech stack, installation, and usage.
-3.   API endpoints   are still included for reference.
+
 
 This version is more concise and to the point for users or contributors. Let me know if you'd like further changes!
