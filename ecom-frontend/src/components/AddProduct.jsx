@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { TextField, Button, Box, Typography, Container } from '@mui/material';
 
 const AddProduct = () => {
   const [name, setName] = useState('');
@@ -25,26 +26,60 @@ const AddProduct = () => {
   };
 
   return (
-    <div>
-      <h2>Add a New Product</h2>
-      {message && <p>{message}</p>}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Product Name</label>
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
-        </div>
-        <div>
-          <label>Price</label>
-          <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} required />
-        </div>
-        <div>
-          <label>Category</label>
-          <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} required />
-        </div>
-        <button type="submit">Add Product</button>
-      </form>
-    </div>
+    <Container maxWidth="sm">
+      <Box
+        sx={{
+          marginTop: 4,
+          padding: 3,
+          boxShadow: 3,
+          borderRadius: 2,
+          backgroundColor: 'background.paper',
+        }}
+      >
+        <Typography variant="h4" align="center" gutterBottom>
+          Add a New Product
+        </Typography>
+
+        {message && (
+          <Typography color={message.includes('Error') ? 'error' : 'success'} align="center" sx={{ marginBottom: 2 }}>
+            {message}
+          </Typography>
+        )}
+
+        <form onSubmit={handleSubmit}>
+          <TextField
+            label="Product Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            fullWidth
+            required
+            sx={{ marginBottom: 2 }}
+          />
+          <TextField
+            label="Price"
+            type="number"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            fullWidth
+            required
+            sx={{ marginBottom: 2 }}
+          />
+          <TextField
+            label="Category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            fullWidth
+            required
+            sx={{ marginBottom: 2 }}
+          />
+          <Button variant="contained" color="primary" type="submit" fullWidth>
+            Add Product
+          </Button>
+        </form>
+      </Box>
+    </Container>
   );
 };
 
 export default AddProduct;
+
